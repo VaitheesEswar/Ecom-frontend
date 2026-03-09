@@ -1,5 +1,4 @@
 import { Button, Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { useState } from 'react'
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import Status from "./Status";
 
@@ -74,7 +73,7 @@ import Status from "./Status";
       </div>
 
       {/* Stock */}
-     <div className="mt-3">
+  <div className="mt-3">
   {isAvailable ? (
     <Status
       status="In Stock"
@@ -88,9 +87,20 @@ import Status from "./Status";
       icon={FaTimesCircle}
     />
   )}
+
+
 </div>
 
     </div>
+
+    <div className="mt-6">
+      <Button
+        onClick={() => setOpen(false)}
+        className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
+      >
+        Close
+      </Button>
+      </div>
 
   </div>
 
