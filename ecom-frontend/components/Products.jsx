@@ -4,6 +4,7 @@ import { FaExclamationTriangle } from "react-icons/fa";
 import { useEffect } from "react";
 import { fetchProducts } from "../Store/actions/index"
 import Filter from "./Filter";
+import useProductFilter from "./useProductFilter";
 
 const Products =() => {
 
@@ -18,7 +19,9 @@ const Products =() => {
     const {products}= useSelector((state)=>state.productState);
     const dispatch =useDispatch();
 
-    useEffect(()=>{ dispatch(fetchProducts())},[dispatch]);
+    useProductFilter();
+
+   // useEffect(()=>{ dispatch(fetchProducts())},[dispatch]);
 
 //     const products=[
 // {

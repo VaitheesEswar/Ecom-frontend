@@ -1,10 +1,10 @@
 import api from "../../src/api/api";
-export  const fetchProducts =() => async (dispatch)=>{
+export  const fetchProducts =(queryString) => async (dispatch)=>{
 
        dispatch({type:"DATA_FETCHING"});
     try
     {
-        const {data} =await api.get("/public/products");
+        const {data} =await api.get(`/public/products?${queryString}`);
 
         console.log("API DATA:", data);
      
