@@ -2,6 +2,9 @@ const initialState = {
   products: null,
   categories: null,
   pagination: {},
+  categoryLoader: false,
+  categoryError: null,
+  categorySuccess : null,
 };
 
 export const productReducer = (state = initialState, action) => {
@@ -21,6 +24,38 @@ export const productReducer = (state = initialState, action) => {
           lastPage: action.lastPage,
         }
       };
+
+   
+
+      case "CATEGORY_FETCHING":
+        return {
+          ...state,   
+
+            categoryLoader: true,
+        };
+
+           case "CATEGORY_LOADER":
+      return {
+        ...state,
+        categories: action.payload,
+       
+      };
+
+        case "CATEGORY_SUCCESS":
+          return {
+            ...state,
+            categoryLoader: false,
+            categorySuccess: "Categories loaded successfully",
+            categoryError: null,
+          };
+
+        case "CATEGORY_ERROR":
+          return {
+            ...state,
+            categoryLoader: false,
+            categoryError: action.payload,
+            categorySuccess: null,
+          };
 
     default:
       return state;
